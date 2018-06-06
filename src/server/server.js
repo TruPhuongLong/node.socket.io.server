@@ -21,13 +21,13 @@ io.on('connection', socket => {
     })
 
     socket.on('message', (message)=>{
-        // console.log('message : ', message )
+        console.log('message : ', message )
 
         //emit to all user:
-        // io.emit('message', message)
+        io.emit('message', message)
 
         // emit to other user: except who sent:
-        socket.broadcast.emit('message', message);
+        // socket.broadcast.emit('message', message);
     })
 })
 
