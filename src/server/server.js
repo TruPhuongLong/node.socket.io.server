@@ -19,6 +19,16 @@ io.on('connection', socket => {
     socket.on('disconnect', ()=>{
         console.log('client disconnect')
     })
+
+    socket.on('message', (message)=>{
+        // console.log('message : ', message )
+
+        //emit to all user:
+        // io.emit('message', message)
+
+        // emit to other user: except who sent:
+        socket.broadcast.emit('message', message);
+    })
 })
 
 // server start:
